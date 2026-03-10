@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class TaskApiController extends Controller
 {
@@ -51,7 +52,7 @@ class TaskApiController extends Controller
 
     public function show(Task $task)
     {
-        $this->authorize('view', $task);
+        Gate::authorize('view', $task);
 
         return response()->json([
             'success' => true,
@@ -61,7 +62,7 @@ class TaskApiController extends Controller
 
     public function update(UpdateTaskRequest $request, Task $task)
     {
-        $this->authorize('update', $task);
+        Gate::authorize('update', $task);
         $task->update($request->validated());
 
         return response()->json([
@@ -73,7 +74,7 @@ class TaskApiController extends Controller
 
     public function destroy(Task $task)
     {
-        $this->authorize('delete', $task);
+        Gate::authorize('delete', $task);
         $task->delete();
 
         return response()->json([
@@ -105,7 +106,7 @@ class TaskApiController extends Controller
     public function restore(int $id)
     {
         $task = Task::onlyTrashed()->ownedBy(Auth::id())->findOrFail($id);
-        $this->authorize('restore', $task);
+        Gate::authorize('restore', $task);
         $task->restore();
 
         return response()->json([

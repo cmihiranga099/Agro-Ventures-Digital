@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class TaskController extends Controller
 {
@@ -61,14 +62,14 @@ class TaskController extends Controller
 
     public function edit(Task $task)
     {
-        $this->authorize('update', $task);
+        Gate::authorize('update', $task);
 
         return view('tasks.edit', compact('task'));
     }
 
     public function update(UpdateTaskRequest $request, Task $task)
     {
-        $this->authorize('update', $task);
+        Gate::authorize('update', $task);
 
         $task->update($request->validated());
 
@@ -79,7 +80,7 @@ class TaskController extends Controller
 
     public function destroy(Task $task)
     {
-        $this->authorize('delete', $task);
+        Gate::authorize('delete', $task);
         $task->delete();
 
         return back()->with('success', 'Task moved to trash.');
@@ -100,7 +101,7 @@ class TaskController extends Controller
     public function restore(int $id)
     {
         $task = Task::onlyTrashed()->ownedBy(Auth::id())->findOrFail($id);
-        $this->authorize('restore', $task);
+        Gate::authorize('restore', $task);
         $task->restore();
 
         return back()->with('success', 'Task restored.');
@@ -109,7 +110,7 @@ class TaskController extends Controller
     public function forceDelete(int $id)
     {
         $task = Task::onlyTrashed()->ownedBy(Auth::id())->findOrFail($id);
-        $this->authorize('forceDelete', $task);
+        Gate::authorize('forceDelete', $task);
         $task->forceDelete();
 
         return back()->with('success', 'Task permanently deleted.');

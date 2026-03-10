@@ -11,7 +11,7 @@
             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full name</label>
             <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus autocomplete="name"
                 class="block w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:bg-white focus:ring-indigo-500 transition"
-                placeholder="Jane Smith" />
+                placeholder="Enter your name" />
             @error('name')
                 <p class="mt-1.5 text-xs text-rose-600 flex items-center gap-1">
                     <svg class="h-3.5 w-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
@@ -24,7 +24,7 @@
             <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email address</label>
             <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="username"
                 class="block w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:bg-white focus:ring-indigo-500 transition"
-                placeholder="you@example.com" />
+                placeholder="Enter your email address" />
             @error('email')
                 <p class="mt-1.5 text-xs text-rose-600 flex items-center gap-1">
                     <svg class="h-3.5 w-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
@@ -37,7 +37,7 @@
             <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
             <input id="password" type="password" name="password" required autocomplete="new-password"
                 class="block w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:bg-white focus:ring-indigo-500 transition"
-                placeholder="Min. 8 characters" />
+                placeholder="Enter your password" />
             @error('password')
                 <p class="mt-1.5 text-xs text-rose-600 flex items-center gap-1">
                     <svg class="h-3.5 w-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
@@ -50,7 +50,7 @@
             <label for="password_confirmation" class="block text-sm font-medium text-gray-700 mb-1">Confirm password</label>
             <input id="password_confirmation" type="password" name="password_confirmation" required autocomplete="new-password"
                 class="block w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:bg-white focus:ring-indigo-500 transition"
-                placeholder="Repeat your password" />
+                placeholder="Confirm your password" />
             @error('password_confirmation')
                 <p class="mt-1.5 text-xs text-rose-600 flex items-center gap-1">
                     <svg class="h-3.5 w-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
